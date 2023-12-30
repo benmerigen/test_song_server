@@ -10,8 +10,8 @@ def new_user_payload():
     user_password = f"test_user_password_{uuid.uuid4().hex}"
 
     return {
-        "user_name": "user_name",
-        "user_password": "user_password"
+        "user_name": user_name,
+        "user_password": user_password
     }
 
 
@@ -21,6 +21,5 @@ def create_user():
 
 
 def get_user(user_name):
-    print("Here " + user_name)
     params = {'user_name': user_name}
     return requests.get(ENDPOINT + f"/users/get_user", params=params)

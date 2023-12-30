@@ -1,6 +1,7 @@
 from logic_layer.users_logic import create_user
 from logic_layer.users_logic import get_user
 
+# Test for success create user
 def test_can_add_user():
     create_user_response = create_user()
     assert create_user_response.status_code == 200, "Can`t create user"
