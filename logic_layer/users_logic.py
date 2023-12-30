@@ -17,7 +17,8 @@ def new_user_payload():
 
 def create_user():
     payload = new_user_payload()
-    return requests.post(ENDPOINT + "/users/add_user", json=payload)
+    response = requests.post(ENDPOINT + "/users/add_user", json=payload)
+    return response, payload["user_password"]
 
 
 def get_user(user_name):
