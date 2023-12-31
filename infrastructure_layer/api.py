@@ -17,21 +17,21 @@ print(address)
 
 
 def get(endpoint, params):
-    r = requests.get(url + endpoint, params=params)
-    return r
+    request = requests.get(url + endpoint, params=params)
+    return request
 
 
 
 def post(endpoint, msg):
-    r = requests.post(url + endpoint, json=msg)
-    return r
+    request = requests.post(url + endpoint, json=msg)
+    return request
 
 
 def put(endpoint, msg):
-    r = requests.put(url + endpoint, json=msg)
-    return r
+    request = requests.put(url + endpoint, json=msg)
+    return request
 
 
 def delete(endpoint):
-    r = requests.delete(url + endpoint)
-    return r
+    request = requests.delete(url + endpoint)
+    return request
