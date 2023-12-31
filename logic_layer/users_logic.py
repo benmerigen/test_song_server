@@ -1,8 +1,5 @@
 import uuid
-
-import requests
-
-from infrastructure_layer.api import ENDPOINT
+from infrastructure_layer import api
 
 
 def new_user_payload():
@@ -17,10 +14,14 @@ def new_user_payload():
 
 def create_user():
     payload = new_user_payload()
-    response = requests.post(ENDPOINT + "/users/add_user", json=payload)
+    response = api.post("/users/add_user", payload)
     return response, payload["user_password"]
 
 
 def get_user(user_name):
     params = {'user_name': user_name}
-    return requests.get(ENDPOINT + f"/users/get_user", params=params)
+    return api.get("/users/get_user", params)
+
+
+def delete_db_users_data():
+

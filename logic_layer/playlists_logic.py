@@ -1,6 +1,5 @@
-import requests
+from infrastructure_layer import api
 
-from infrastructure_layer.api import ENDPOINT
 
 # Test for successfully add song to user`s playlist
 def new_playlist_payload(user_name, user_password, song_title):
@@ -13,7 +12,7 @@ def new_playlist_payload(user_name, user_password, song_title):
 
 def add_song_to_playlist(user_name, user_password, song_title):
     payload = new_playlist_payload(user_name, user_password, song_title)
-    return requests.post(ENDPOINT + "/playlists/add_song", json=payload)
+    return api.post("/playlists/add_song", payload)
 
 
 
