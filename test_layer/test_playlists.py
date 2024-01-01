@@ -68,4 +68,3 @@ def test_add_song_to_playlist_doesnt_exist(set_up_data_base, song_genre, song_pe
     assert add_song_to_playlist_response.json()['error'] == "the song test_song_name already exist in the playlist or not in the songs collection"
 
 
-q
