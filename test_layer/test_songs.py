@@ -31,7 +31,7 @@ def test_can_add_song(set_up_data_base, song_genre, song_performer, song_title, 
                          [
                              ("Rock", "Creedence Clearwater Revival", "test_song_name", 1970)
                          ])
-def test_can_add_song(set_up_data_base, song_genre, song_performer, song_title, song_year):
+def test_exist_add_song(set_up_data_base, song_genre, song_performer, song_title, song_year):
     create_song(song_genre, song_performer, song_title, song_year) # first time
     create_song_response = create_song(song_genre, song_performer, song_title, song_year) # second time
     assert create_song_response.json()['error'] == "this song already exist in the collection"

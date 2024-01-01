@@ -83,6 +83,17 @@ def test_add_new_playlist(set_up_data_base, playlist_name, user_name, user_passw
 
 
 
+# Test to check create exist playlist
+@pytest.mark.parametrize(("playlist_name", "user_name", "user_password"), [("test_play","Arnold", "topsicrt")])
+def test_add_exist_playlist(set_up_data_base, playlist_name, user_name, user_password):
+    create_user_response = create_user(user_name, user_password)
+    assert create_user_response.status_code == 200, "Can`t create user"
+    create_playlist(playlist_name, user_name, user_password) # create playlist first time
+    create_playlist_response = create_playlist(playlist_name, user_name, user_password) # playlist exist
+    assert create_playlist_response.json().get('error') # get error message
+
+
+
 
 
 
